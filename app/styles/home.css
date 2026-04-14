@@ -1,0 +1,178 @@
+#home {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  section {
+    padding: 4rem;
+
+    &.active {
+      .about-us-description {
+        animation: fadeInRight 0.8s ease-out forwards;
+      }
+
+      .about-us-side-img {
+        animation: fadeInLeft 0.8s ease-out forwards;
+      }
+    }
+
+    &:not(.active) {
+      .about-us-description {
+        animation: fadeOutRight 0.8s ease-out forwards;
+      }
+
+      .about-us-side-img {
+        animation: fadeOutLeft 0.8s ease-out forwards;
+      }
+    }
+  }
+
+  .separator {
+    background: url("/app/media/navbar-item-divider.png") center / contain
+      no-repeat;
+  }
+
+  .lang-switcher {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  .home {
+    background: url("/app/media/home-banner.jpg") center / cover no-repeat;
+  }
+
+  .about-us {
+    background: url("/app/media/about-us-banner.jpg") center / cover no-repeat;
+
+    .about-us-description {
+      transform: translateY(-50%) translateX(100%);
+      opacity: 0;
+      display: flex;
+    }
+
+    .about-us-side-img {
+      background: url("/app/media/about-us-side-img.png") center bottom /
+        contain no-repeat;
+    }
+
+    .member-icon {
+      background: url("/app/media/member-icon.png") center / cover no-repeat;
+    }
+  }
+
+  .game-we-play {
+    background: url("/app/media/game-we-play-banner.jpg") center / cover
+      no-repeat;
+
+    .panel {
+      flex: 0.5;
+
+      &.active {
+        flex: 5;
+      }
+    }
+
+    #panel-1 {
+      background-image: url("/app/media/throne-and-liberty.jpg");
+    }
+
+    #panel-2 {
+      background-image: url("/app/media/where-winds-meet.avif");
+    }
+
+    #panel-3,
+    #panel-4,
+    #panel-5 {
+      background-image: url("/app/media/bellatores.jpg");
+    }
+  }
+
+  .scroll-tip {
+    background: url("/app/media/scroll-anchor.png") center / cover no-repeat;
+  }
+
+  .animate-updown {
+    animation: upDown 2s ease-in-out infinite;
+  }
+
+  .fadeInTitle {
+    opacity: 0;
+    animation: characterFadeIn 0.5s forwards;
+  }
+
+  .fadeInCharacter {
+    display: inline-block;
+    opacity: 0;
+    animation: characterFadeIn 0.5s forwards;
+  }
+}
+
+@keyframes characterFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px); /* move up */
+  }
+  100% {
+    transform: translateY(0); /* back to start */
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateY(0) translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes fadeOutLeft {
+  from {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0) translateX(-100%);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@keyframes fadeOutRight {
+  from {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50%) translateX(100%);
+  }
+}
